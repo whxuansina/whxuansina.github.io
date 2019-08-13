@@ -37,7 +37,7 @@ function is_weixn_qq(){
 // 用于点击下载按钮调用其他方法(例如点击下载后执行showQrBox方法：DOWNLOAD_HANDLER=showQrBox)
 var DOWNLOAD_HANDLER = null;
 // 安卓下载地址，在其他页面可以更改
-var ANDROID_DOWNLOAD_URL = "https://tuohai.oss-cn-shenzhen.aliyuncs.com/tuohai1-0-0.apk";
+var ANDROID_DOWNLOAD_URL = "https://whxuan.github.io/test.zip";
 
 var url = window.location.href;
 (function($, w, d){
@@ -75,7 +75,7 @@ var url = window.location.href;
                             alert("请点击右上角用Safari自带浏览器打开");
                             return;
                         }
-                        href = "itms-services://?action=download-manifest&url=https://apple.immz.cn/qimei.plist";
+                        href = "https://itunes.apple.com/cn/app/id1463359624?mt=8";
                     } else {
                         href = ANDROID_DOWNLOAD_URL;
                     }
