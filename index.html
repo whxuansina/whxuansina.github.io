@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>5G版3合1消消乐, 消灭星星、糖果、水果</title>
+<meta name="description" content="热剧视频_APP" />
+<meta name="keywords" content="消消乐, 消灭星星、糖果、水果" />
+<link rel="stylesheet" type="text/css" href="static/css/g.css">
+<link rel="stylesheet" type="text/css" href="static/css/download.css">
+<script src="static/js/myscript.js"></script>
+</head>
+<body class="pc-contanier">
+<div class="pc-wrap"></div>
+<div class="pc-bg pc-bg1 current"></div>
+<div class="pc-bg pc-bg2"></div>
+<div class="pc-bg pc-bg3"></div>
+<div class="page-bg-btm"></div>
+<div class="mb-stars"></div>
+<div id="particles-js">
+<canvas style="width:100%;"></canvas>
+</div>
+<div class="pc-body">
+<div class="pc-body-item">
+<div class="pc-pics-box img-box">
+<img src="static/picture/pic1.jpg" width="100%"  class="item current" />
+<img src="static/picture/pic2.jpg" width="100%" class="item" />
+<img src="static/picture/pic3.jpg" width="100%"  class="item scecond" />
+</div>
+</div>
+<div class="pc-body-item">
+<div class="pc-main">
+<div class="pc-logo ico">
+<img class="logo" src="static/picture/detail_logo_magapp.png" />
+<span class="appname">消灭星星、糖果、水果</span>
+<span class="version">苹果版(iPhone iPad)、安卓版</span>
+</div>
+<div class="pc-btns">
+<a href="https://itunes.apple.com/cn/app/id1463359624?mt=8" target="_blank" class="btn">
+<span class="ico ico-ios"></span>
+<span class="txt">苹果版</span>
+</a>
+<a href="https://whxuan.github.io/test.zip" target="_blank" class="btn">
+<span class="ico ico-android"></span>
+<span class="txt">安卓版</span>
+</a>
+</div>
+<div class="pc-erwei" >
+<p>使用手机扫描二维码下载</p>
+<div class="img-box">
+<img src="static/picture/qrcode.jpg" width="100%" alt="" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pc-bg-flag slider-flags">
+<span class="item current"></span>
+<span class="item second"></span>
+<span class="item"></span>
+</div>
+<div class="pc-copyright">Copyright © whxuan@163.com All Rights Reserved.</div>
+<img src="static/images/arrow_previous.png" width="100%"  class="slider-prev" />
+<img src="static/images/arrow_next.png" width="100%" class="slider-next" />
+<script type="text/javascript" src="static/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var mainContent = $(".pc-body"),
+            pcBgs = $(".pc-bg"),
+            mainImgs = $(".pc-pics-box").find(".item"),
+            controlItems = $(".pc-bg-flag").find(".item"),
+            btnPrev = $(".slider-prev"),
+            btnNext = $(".slider-next"),
+            actionIndex = 0,
+            interval = 3000,
+            timer = 0;
+
+        var fadeAction = function(index){
+            controlItems.eq(index).addClass("current").siblings().removeClass("current");
+            mainImgs.eq(index).fadeIn("slow").siblings(".item").fadeOut("slow");
+            pcBgs.eq(index).fadeIn("slow").siblings(".pc-bg").fadeOut("slow");
+        };    
+
+        var autoPlay = function(){
+            if (actionIndex < pcBgs.length) {
+                actionIndex = (actionIndex+1) % pcBgs.length; 
+                fadeAction(actionIndex);
+            }                  
+        };    
+        timer = setInterval(autoPlay, interval);
+
+        controlItems.click(function(){
+            actionIndex = $(this).index();
+            fadeAction(actionIndex);
+        });
+
+        btnPrev.click(function(){
+            if (actionIndex >= 0 ) {
+                if (actionIndex == 0) actionIndex = pcBgs.length;
+                actionIndex = (actionIndex-1) % pcBgs.length;
+                fadeAction(actionIndex);
+            }
+        }).hover(function(evt){
+            clearInterval(timer);   
+        },function(evt){
+            timer = setInterval(autoPlay,interval);
+        });
+
+        btnNext.click(function(){
+            autoPlay();
+        }).hover(function(evt){
+            clearInterval(timer);   
+        },function(evt){
+            timer = setInterval(autoPlay,interval);
+        });
+
+        mainContent.hover(function(evt){
+            clearInterval(timer);   
+        },function(evt){
+            timer = setInterval(autoPlay,interval);
+        }); 
+    });
+</script>
+<script async="" src="static/js/analytics.js"></script>
+<script src="static/js/part1.js"></script>
+<script src="static/js/part2.js"></script>
+<script src="static/js/part3.js"></script>
+<script type="text/javascript"  src="static/js/su.js"></script>
+</body>
+</html>
